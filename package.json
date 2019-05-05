@@ -1,0 +1,174 @@
+{
+	"name": "lsp-hol",
+	"description": "A language server for HOL & standard ml97",
+	"author": "stargazermiao",
+	"license": "MIT",
+	"version": "1.0.0",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Microsoft/vscode-extension-samples"
+	},
+	"publisher": "stargazermiao",
+	"categories": [
+		"Programming Languages"
+	],
+	"keywords": [
+		"multi-root ready"
+	],
+	"activationEvents": [
+		"onLanguage:sml"
+	],
+	"engines": {
+		"vscode": "^1.23.0"
+	},
+	"main": "./client/out/extension",
+	"contributes": {
+		"grammars": [
+			{
+				"language": "sml",
+				"scopeName": "source.sml",
+				"path": "./sml-grammar.json"
+			}
+		],
+		"languages": [
+			{
+				"id": "sml",
+				"aliases": [
+					"Standard ML"
+				],
+				"extensions": [
+					".fun",
+					".sig",
+					".sml",
+					".ML"
+				],
+				"configuration": "./sml-language.json"
+			}
+		],
+		"configuration": {
+			"title": "sml",
+			"properties": {
+				"sml.compiler.path": {
+					"type": "string",
+					"default": "poly",
+					"description": "Path to the SML binary."
+				},
+				"sml.compiler.args": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					},
+					"default": [],
+					"description": "Arguments to pass to the sml provider binary."
+				},
+				"hol.prover.path": {
+					"type": "string",
+					"default": "$HOL_HOME",
+					"description": "path to the hol binary"
+				}
+			}
+		},
+		"commands": [
+			{
+				"command": "hol.start-hol",
+				"title": "Start HOL",
+				"category": "HOL"
+			},
+			{
+				"command": "hol.kill-hol",
+				"title": "Kill HOL",
+				"category": "HOL"
+			},
+			{
+				"command": "hol.turn-on-unicode",
+				"title": "turn on unicode",
+				"category": "HOL"
+			},
+			{
+				"command": "hol.turn-on-type",
+				"title": "turn on type",
+				"category": "HOL"
+			},
+			{
+				"command": "hol.run-in-hol",
+				"title": "run code in hol",
+				"category": "HOL"
+			},
+			{
+				"command": "hol.goal.set",
+				"title": "set goal",
+				"category": "HOL"
+			},
+			{
+				"command": "hol.tactic.e",
+				"title": "apply tactic",
+				"category": "HOL"
+			}
+		],
+		"taskDefinitions": [
+			{
+				"type": "hol",
+				"required": ["task"],
+				"properties": {
+					"task": {
+						"type": "string",
+						"description": "the hol task"
+					}
+				}
+			}
+		],
+		"keybindings": [
+			{
+				"command": "hol.start-hol",
+				"key": "alt+h h"
+			},
+			{
+				"command": "hol.kill-hol",
+				"key": "alt+h k"
+			},
+			{
+				"command": "hol.run-in-hol",
+				"key": "alt+h alt+r"
+			},
+			{
+				"command": "hol.goal.set",
+				"key": "alt+h g"
+			},
+			{
+				"command": "hol.goal.print",
+				"key": "alt+h p"
+			},
+			{
+				"command": "hol.tactic.e",
+				"key": "alt+h e"
+			}
+		],
+		"menus": {
+			"editor/context": [
+				{
+					"when": "!inOutput",
+					"command": "hol.run-in-hol",
+					"group": "hol"
+				}
+			]
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "cd client && npm run update-vscode && cd .. && npm run compile",
+		"compile": "tsc -b",
+		"watch": "tsc -b -w",
+		"postinstall": "cd client && npm install && cd ../server && npm install && cd ..",
+		"test": "sh ./scripts/e2e.sh",
+		"antlr4ts": "antlr4ts -visitor antlr4/ML.g4"
+	},
+	"devDependencies": {
+		"@types/mocha": "^5.2.0",
+		"@types/node": "^8.0.0",
+		"antlr4ts-cli": "^0.5.0-alpha.3",
+		"tslint": "^5.11.0",
+		"typescript": "^3.1.3"
+	},
+	"dependencies": {
+		"antlr4ts": "^0.5.0-alpha.3"
+	}
+}

@@ -1,0 +1,14 @@
+{
+	"name": "lsp-sml-server",
+	"description": "implementation of sml language server in node.",
+	"version": "1.0.0",
+	"author": "stargazermiao",
+	"license": "MIT",
+	"engines": {
+		"node": "*"
+	},
+	"dependencies": {
+		"vscode-languageserver": "^4.1.3"
+	},
+	"scripts": {}
+}
