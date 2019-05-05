@@ -12,3 +12,10 @@ actually I just copy and paste something from existed vscode document, and some 
 - `alt+h g`: set selected code as goal
 - `alt+h p`: print current goal
 - `alt+h e`: apply selected code as a HOL tactic
+
+## THINGS TO HAVE
+
+- unicode replace
+- function in emacs hol-mode
+- make some thing like proof genral....
+- good linting and auto-complete
