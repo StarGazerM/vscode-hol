@@ -33,10 +33,13 @@ export class HolTerminalService {
 	// send selected content in hol
 	public runInHol() {
 		let selectedText = this.getSelectedText();
+		// first take out all 'open' command
+		let openLines = selectedText.split("\n").filter((s) => s.startsWith("open"));
+		// auto load
+		openLines.forEach((s) => this.holTerminal.sendText(this.genLoadCommand(s)));
 		this.holTerminal.sendText(selectedText + ";");
 	}
 
-	
 	public setGoal() {
 		let selectedText = this.getSelectedText();
 		// this.holTerminal.sendText(`set_goal(\`\`${selectedText}\`\`);`);
@@ -45,8 +48,19 @@ export class HolTerminalService {
 	}
 
 	public printGoal() {
-		let selectedText = this.getSelectedText();
 		this.holTerminal.sendText("p();");
+	}
+
+	public printAllGoal() {
+		this.holTerminal.sendText("status();");
+	}
+
+	public dropGoal() {
+		this.holTerminal.sendText("drop();");
+	}
+
+	public dropAllGoal() {
+		this.holTerminal.sendText("proofManagerLib.dropn (case proofManagerLib.status() of Manager.PRFS l => List.length;");
 	}
 
 	public applyTac() {
@@ -68,6 +82,16 @@ export class HolTerminalService {
 			vscode.window.showInformationMessage("No code is selected TvT/～");
 		}
 		return text;
+	}
+
+	// map load ["acl_infRules", "aclrulesTheory", "aclDrulesTheory"];
+	private genLoadCommand(openStr: String): string {
+		let libs = openStr.split(' ').slice(1);
+		libs = libs.filter((s) => !(s.includes(" ") || s.includes(";")));
+		const head = "map load [";
+		const tail = "];";
+		let libStr = libs.map((s) => `\"${s}\"`).join();
+		return head + libStr + tail;
 	}
 }
 

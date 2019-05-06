@@ -139,6 +139,18 @@
 				"key": "alt+h p"
 			},
 			{
+				"command": "hol.goal.drop",
+				"key": "alt+h d"
+			},
+			{
+				"command": "hol.goal.dropall",
+				"key": "alt+h d"
+			},
+			{
+				"command": "hol.goal.printAll",
+				"key": "alt+h P"
+			},
+			{
 				"command": "hol.tactic.e",
 				"key": "alt+h e"
 			}

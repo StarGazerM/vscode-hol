@@ -3,10 +3,10 @@
 */
 grammar ML;
 
-@header {
-    package com.syr.sml.parser;
-    import java.util.HashMap;
-}
+// @header {
+//     package com.syr.sml.parser;
+//     import java.util.HashMap;
+// }
 
 // lexer
 COMMENT

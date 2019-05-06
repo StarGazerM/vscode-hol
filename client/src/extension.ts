@@ -20,7 +20,7 @@ let holTerminalService: HolTerminalService;
 
 export function activate(context: ExtensionContext) {
 	// The server is implemented in node
-	
+
 	createHolTaskProvider();
 	holTerminalService = new HolTerminalService();
 	context.subscriptions.push(
@@ -30,7 +30,11 @@ export function activate(context: ExtensionContext) {
 	);
 	// goal
 	context.subscriptions.push(
-		commands.registerCommand("hol.goal.set", () => holTerminalService.setGoal())
+		commands.registerCommand("hol.goal.set", () => holTerminalService.setGoal()),
+		commands.registerCommand("hol.goal.drop", () => holTerminalService.dropGoal()),
+		commands.registerCommand("hol.goal.dropAll", holTerminalService.dropAllGoal),
+		commands.registerCommand("hol.goal.print", holTerminalService.printGoal),
+		commands.registerCommand("hol.goal.printAll", holTerminalService.printAllGoal)
 	);
 	// tactic
 	context.subscriptions.push(
