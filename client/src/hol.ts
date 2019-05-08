@@ -20,6 +20,7 @@ export class HolTerminalService {
 			this.holTerminal.sendText("use (Globals.HOLDIR ^ \"/tools/hol-mode.sml\");");
 			this.holTerminal.show();
 		}
+		vscode.workspace
 		this.active = true;
 	}
 
