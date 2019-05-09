@@ -3,7 +3,7 @@
  */
 
 import * as vsrv from 'vscode-languageserver';
-import * as uuid from 'node-uuid'
+import * as uuid from 'node-uuid';
 
 export class Features {
 	private static readonly features: vsrv.Registration[] = [

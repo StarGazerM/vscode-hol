@@ -1,10 +1,6 @@
 // Generated from antlr4/ML.g4 by ANTLR 4.7.3-SNAPSHOT
 
 
-    // package com.syr.sml.parser;
-    // import java.util.HashMap;
-
-
 import { ParseTreeListener } from "antlr4ts/tree/ParseTreeListener";
 
 import { ValDecContext } from "./MLParser";
@@ -23,6 +19,7 @@ import { IncludeDecContext } from "./MLParser";
 import { NonfixDecContext } from "./MLParser";
 import { LeftAssocInfixDecContext } from "./MLParser";
 import { RightAssocInfixDecContext } from "./MLParser";
+import { MatchBodyContext } from "./MLParser";
 import { VarTypContext } from "./MLParser";
 import { LongIdTypContext } from "./MLParser";
 import { ConsOneTypContext } from "./MLParser";
@@ -92,7 +89,6 @@ import { TypeAnnoPatContext } from "./MLParser";
 import { LayeredPatContext } from "./MLParser";
 import { ClausalFuncBindContext } from "./MLParser";
 import { TypeRefineContext } from "./MLParser";
-import { MatchBodyContext } from "./MLParser";
 import { PlainFctBindCompContext } from "./MLParser";
 import { PlainFctBindSmplContext } from "./MLParser";
 import { OpenedFctBindCompContext } from "./MLParser";
@@ -129,7 +125,7 @@ import { SigBindContext } from "./MLParser";
 import { LongidContext } from "./MLParser";
 import { ExpContext } from "./MLParser";
 import { ExprowContext } from "./MLParser";
-import { MatchContext } from "./MLParser";
+import { EmatchContext } from "./MLParser";
 import { LabContext } from "./MLParser";
 import { PatContext } from "./MLParser";
 import { PatrowContext } from "./MLParser";
@@ -371,6 +367,19 @@ export interface MLListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	exitRightAssocInfixDec?: (ctx: RightAssocInfixDecContext) => void;
+
+	/**
+	 * Enter a parse tree produced by the `matchBody`
+	 * labeled alternative in `MLParser.ematch`.
+	 * @param ctx the parse tree
+	 */
+	enterMatchBody?: (ctx: MatchBodyContext) => void;
+	/**
+	 * Exit a parse tree produced by the `matchBody`
+	 * labeled alternative in `MLParser.ematch`.
+	 * @param ctx the parse tree
+	 */
+	exitMatchBody?: (ctx: MatchBodyContext) => void;
 
 	/**
 	 * Enter a parse tree produced by the `varTyp`
@@ -1270,19 +1279,6 @@ export interface MLListener extends ParseTreeListener {
 	exitTypeRefine?: (ctx: TypeRefineContext) => void;
 
 	/**
-	 * Enter a parse tree produced by the `matchBody`
-	 * labeled alternative in `MLParser.match`.
-	 * @param ctx the parse tree
-	 */
-	enterMatchBody?: (ctx: MatchBodyContext) => void;
-	/**
-	 * Exit a parse tree produced by the `matchBody`
-	 * labeled alternative in `MLParser.match`.
-	 * @param ctx the parse tree
-	 */
-	exitMatchBody?: (ctx: MatchBodyContext) => void;
-
-	/**
 	 * Enter a parse tree produced by the `plainFctBindComp`
 	 * labeled alternative in `MLParser.fctbind`.
 	 * @param ctx the parse tree
@@ -1745,15 +1741,15 @@ export interface MLListener extends ParseTreeListener {
 	exitExprow?: (ctx: ExprowContext) => void;
 
 	/**
-	 * Enter a parse tree produced by `MLParser.match`.
+	 * Enter a parse tree produced by `MLParser.ematch`.
 	 * @param ctx the parse tree
 	 */
-	enterMatch?: (ctx: MatchContext) => void;
+	enterEmatch?: (ctx: EmatchContext) => void;
 	/**
-	 * Exit a parse tree produced by `MLParser.match`.
+	 * Exit a parse tree produced by `MLParser.ematch`.
 	 * @param ctx the parse tree
 	 */
-	exitMatch?: (ctx: MatchContext) => void;
+	exitEmatch?: (ctx: EmatchContext) => void;
 
 	/**
 	 * Enter a parse tree produced by `MLParser.lab`.

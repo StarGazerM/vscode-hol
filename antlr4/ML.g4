@@ -1,5 +1,6 @@
 /**
 * this is the antlr4 version of Standard ML97
+* HOL grammar is also included in this file
 */
 grammar ML;
 
@@ -69,23 +70,27 @@ exp
     | exp exp                               # appExp
     | exp ':' typ                           # typeAnnoExp
     | 'raise' exp                           # exnRaisingExp
-    | exp 'handle' match                    # exnHandlingExp
+    | exp 'handle' ematch                    # exnHandlingExp
     | exp 'andalso' exp                     # conjExp
     | exp 'orelse' exp                      # disjExp
     | 'if' exp 'then' exp 'else' exp        # condExp
     | 'while' exp 'do' exp                  # iterExp
-    | 'case' exp 'of' match                 # caseAnalysisExp
-    | 'fn' match                            # funcExp
+    | 'case' exp 'of' ematch                 # caseAnalysisExp
+    | 'fn' ematch                            # funcExp
     ;
 exprow                                      // expression row
     : lab '=' exp (','exprow)?              # expRow
     ;
-match                                       // match
-    : pat '=>' exp ('|' match)?             # matchBody
+ematch                                       
+    : pat '=>' exp ('|' ematch)?             # matchBody
     ;
 lab:
     ID | CON                                # labelName
     ;
+
+// HOL term
+
+
 // pattern
 pat
     : CON                                   # constPat

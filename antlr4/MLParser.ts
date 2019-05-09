@@ -1,10 +1,6 @@
 // Generated from antlr4/ML.g4 by ANTLR 4.7.3-SNAPSHOT
 
 
-    // package com.syr.sml.parser;
-    // import java.util.HashMap;
-
-
 import { ATN } from "antlr4ts/atn/ATN";
 import { ATNDeserializer } from "antlr4ts/atn/ATNDeserializer";
 import { FailedPredicateException } from "antlr4ts/FailedPredicateException";
@@ -102,7 +98,7 @@ export class MLParser extends Parser {
 	public static readonly RULE_longid = 0;
 	public static readonly RULE_exp = 1;
 	public static readonly RULE_exprow = 2;
-	public static readonly RULE_match = 3;
+	public static readonly RULE_ematch = 3;
 	public static readonly RULE_lab = 4;
 	public static readonly RULE_pat = 5;
 	public static readonly RULE_patrow = 6;
@@ -132,7 +128,7 @@ export class MLParser extends Parser {
 	public static readonly RULE_sigbind = 30;
 	// tslint:disable:no-trailing-whitespace
 	public static readonly ruleNames: string[] = [
-		"longid", "exp", "exprow", "match", "lab", "pat", "patrow", "typ", "typrow", 
+		"longid", "exp", "exprow", "ematch", "lab", "pat", "patrow", "typ", "typrow", 
 		"dec", "valbind", "funbind", "funmatch", "typbind", "databind", "conbind", 
 		"exnbind", "str", "strbind", "sig", "typrefin", "spec", "valdesc", "typdesc", 
 		"datdesc", "condesc", "exndesc", "strdesc", "prog", "fctbind", "sigbind",
@@ -532,7 +528,7 @@ export class MLParser extends Parser {
 				this.state = 147;
 				this.match(MLParser.T__25);
 				this.state = 148;
-				this.match();
+				this.ematch();
 				}
 				break;
 
@@ -544,7 +540,7 @@ export class MLParser extends Parser {
 				this.state = 150;
 				this.match(MLParser.T__26);
 				this.state = 151;
-				this.match();
+				this.ematch();
 				}
 				break;
 			}
@@ -646,7 +642,7 @@ export class MLParser extends Parser {
 						this.state = 169;
 						this.match(MLParser.T__16);
 						this.state = 170;
-						this.match();
+						this.ematch();
 						}
 						break;
 					}
@@ -716,9 +712,9 @@ export class MLParser extends Parser {
 		return _localctx;
 	}
 	// @RuleVersion(0)
-	public match(): MatchContext {
-		let _localctx: MatchContext = new MatchContext(this._ctx, this.state);
-		this.enterRule(_localctx, 6, MLParser.RULE_match);
+	public ematch(): EmatchContext {
+		let _localctx: EmatchContext = new EmatchContext(this._ctx, this.state);
+		this.enterRule(_localctx, 6, MLParser.RULE_ematch);
 		try {
 			_localctx = new MatchBodyContext(_localctx);
 			this.enterOuterAlt(_localctx, 1);
@@ -737,7 +733,7 @@ export class MLParser extends Parser {
 				this.state = 186;
 				this.match(MLParser.T__29);
 				this.state = 187;
-				this.match();
+				this.ematch();
 				}
 				break;
 			}
@@ -5108,8 +5104,8 @@ export class ExnHandlingExpContext extends ExpContext {
 	public exp(): ExpContext {
 		return this.getRuleContext(0, ExpContext);
 	}
-	public match(): MatchContext {
-		return this.getRuleContext(0, MatchContext);
+	public ematch(): EmatchContext {
+		return this.getRuleContext(0, EmatchContext);
 	}
 	constructor(ctx: ExpContext) {
 		super(ctx.parent, ctx.invokingState);
@@ -5280,8 +5276,8 @@ export class CaseAnalysisExpContext extends ExpContext {
 	public exp(): ExpContext {
 		return this.getRuleContext(0, ExpContext);
 	}
-	public match(): MatchContext {
-		return this.getRuleContext(0, MatchContext);
+	public ematch(): EmatchContext {
+		return this.getRuleContext(0, EmatchContext);
 	}
 	constructor(ctx: ExpContext) {
 		super(ctx.parent, ctx.invokingState);
@@ -5309,8 +5305,8 @@ export class CaseAnalysisExpContext extends ExpContext {
 	}
 }
 export class FuncExpContext extends ExpContext {
-	public match(): MatchContext {
-		return this.getRuleContext(0, MatchContext);
+	public ematch(): EmatchContext {
+		return this.getRuleContext(0, EmatchContext);
 	}
 	constructor(ctx: ExpContext) {
 		super(ctx.parent, ctx.invokingState);
@@ -5386,27 +5382,27 @@ export class ExpRowContext extends ExprowContext {
 }
 
 
-export class MatchContext extends ParserRuleContext {
+export class EmatchContext extends ParserRuleContext {
 	constructor(parent: ParserRuleContext | undefined, invokingState: number) {
 		super(parent, invokingState);
 	}
 	// @Override
-	public get ruleIndex(): number { return MLParser.RULE_match; }
-	public copyFrom(ctx: MatchContext): void {
+	public get ruleIndex(): number { return MLParser.RULE_ematch; }
+	public copyFrom(ctx: EmatchContext): void {
 		super.copyFrom(ctx);
 	}
 }
-export class MatchBodyContext extends MatchContext {
+export class MatchBodyContext extends EmatchContext {
 	public pat(): PatContext {
 		return this.getRuleContext(0, PatContext);
 	}
 	public exp(): ExpContext {
 		return this.getRuleContext(0, ExpContext);
 	}
-	public match(): MatchContext | undefined {
-		return this.tryGetRuleContext(0, MatchContext);
+	public ematch(): EmatchContext | undefined {
+		return this.tryGetRuleContext(0, EmatchContext);
 	}
-	constructor(ctx: MatchContext) {
+	constructor(ctx: EmatchContext) {
 		super(ctx.parent, ctx.invokingState);
 		this.copyFrom(ctx);
 	}

@@ -1,4 +1,4 @@
-// Generated from /home/stargazermiao/workspace/ts/lsp-sample/antlr4/ML.g4 by ANTLR 4.7.1
+// Generated from /Users/stargazermiao/workspace/ts/vscode-hol/antlr4/ML.g4 by ANTLR 4.7.1
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -27,7 +27,7 @@ public class MLParser extends Parser {
 		COMMENT=60, RESERVED_WORD=61, ID=62, CON=63, VAR=64, LETTER=65, DIGIT=66, 
 		WS=67;
 	public static final int
-		RULE_longid = 0, RULE_exp = 1, RULE_exprow = 2, RULE_match = 3, RULE_lab = 4, 
+		RULE_longid = 0, RULE_exp = 1, RULE_exprow = 2, RULE_ematch = 3, RULE_lab = 4, 
 		RULE_pat = 5, RULE_patrow = 6, RULE_typ = 7, RULE_typrow = 8, RULE_dec = 9, 
 		RULE_valbind = 10, RULE_funbind = 11, RULE_funmatch = 12, RULE_typbind = 13, 
 		RULE_databind = 14, RULE_conbind = 15, RULE_exnbind = 16, RULE_str = 17, 
@@ -36,7 +36,7 @@ public class MLParser extends Parser {
 		RULE_exndesc = 26, RULE_strdesc = 27, RULE_prog = 28, RULE_fctbind = 29, 
 		RULE_sigbind = 30;
 	public static final String[] ruleNames = {
-		"longid", "exp", "exprow", "match", "lab", "pat", "patrow", "typ", "typrow", 
+		"longid", "exp", "exprow", "ematch", "lab", "pat", "patrow", "typ", "typrow", 
 		"dec", "valbind", "funbind", "funmatch", "typbind", "databind", "conbind", 
 		"exnbind", "str", "strbind", "sig", "typrefin", "spec", "valdesc", "typdesc", 
 		"datdesc", "condesc", "exndesc", "strdesc", "prog", "fctbind", "sigbind"
@@ -218,8 +218,8 @@ public class MLParser extends Parser {
 		public ListExpContext(ExpContext ctx) { copyFrom(ctx); }
 	}
 	public static class FuncExpContext extends ExpContext {
-		public MatchContext match() {
-			return getRuleContext(MatchContext.class,0);
+		public EmatchContext ematch() {
+			return getRuleContext(EmatchContext.class,0);
 		}
 		public FuncExpContext(ExpContext ctx) { copyFrom(ctx); }
 	}
@@ -246,8 +246,8 @@ public class MLParser extends Parser {
 		public ExpContext exp() {
 			return getRuleContext(ExpContext.class,0);
 		}
-		public MatchContext match() {
-			return getRuleContext(MatchContext.class,0);
+		public EmatchContext ematch() {
+			return getRuleContext(EmatchContext.class,0);
 		}
 		public ExnHandlingExpContext(ExpContext ctx) { copyFrom(ctx); }
 	}
@@ -323,8 +323,8 @@ public class MLParser extends Parser {
 		public ExpContext exp() {
 			return getRuleContext(ExpContext.class,0);
 		}
-		public MatchContext match() {
-			return getRuleContext(MatchContext.class,0);
+		public EmatchContext ematch() {
+			return getRuleContext(EmatchContext.class,0);
 		}
 		public CaseAnalysisExpContext(ExpContext ctx) { copyFrom(ctx); }
 	}
@@ -623,7 +623,7 @@ public class MLParser extends Parser {
 				setState(147);
 				match(T__25);
 				setState(148);
-				match();
+				ematch();
 				}
 				break;
 			case 15:
@@ -634,7 +634,7 @@ public class MLParser extends Parser {
 				setState(150);
 				match(T__26);
 				setState(151);
-				match();
+				ematch();
 				}
 				break;
 			}
@@ -717,7 +717,7 @@ public class MLParser extends Parser {
 						setState(169);
 						match(T__16);
 						setState(170);
-						match();
+						ematch();
 						}
 						break;
 					}
@@ -803,33 +803,33 @@ public class MLParser extends Parser {
 		return _localctx;
 	}
 
-	public static class MatchContext extends ParserRuleContext {
-		public MatchContext(ParserRuleContext parent, int invokingState) {
+	public static class EmatchContext extends ParserRuleContext {
+		public EmatchContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
-		@Override public int getRuleIndex() { return RULE_match; }
+		@Override public int getRuleIndex() { return RULE_ematch; }
 	 
-		public MatchContext() { }
-		public void copyFrom(MatchContext ctx) {
+		public EmatchContext() { }
+		public void copyFrom(EmatchContext ctx) {
 			super.copyFrom(ctx);
 		}
 	}
-	public static class MatchBodyContext extends MatchContext {
+	public static class MatchBodyContext extends EmatchContext {
 		public PatContext pat() {
 			return getRuleContext(PatContext.class,0);
 		}
 		public ExpContext exp() {
 			return getRuleContext(ExpContext.class,0);
 		}
-		public MatchContext match() {
-			return getRuleContext(MatchContext.class,0);
+		public EmatchContext ematch() {
+			return getRuleContext(EmatchContext.class,0);
 		}
-		public MatchBodyContext(MatchContext ctx) { copyFrom(ctx); }
+		public MatchBodyContext(EmatchContext ctx) { copyFrom(ctx); }
 	}
 
-	public final MatchContext match() throws RecognitionException {
-		MatchContext _localctx = new MatchContext(_ctx, getState());
-		enterRule(_localctx, 6, RULE_match);
+	public final EmatchContext ematch() throws RecognitionException {
+		EmatchContext _localctx = new EmatchContext(_ctx, getState());
+		enterRule(_localctx, 6, RULE_ematch);
 		try {
 			_localctx = new MatchBodyContext(_localctx);
 			enterOuterAlt(_localctx, 1);
@@ -848,7 +848,7 @@ public class MLParser extends Parser {
 				setState(186);
 				match(T__29);
 				setState(187);
-				match();
+				ematch();
 				}
 				break;
 			}

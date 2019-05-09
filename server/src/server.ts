@@ -14,7 +14,8 @@ import {
 	DidChangeConfigurationNotification,
 	CompletionItem,
 	CompletionItemKind,
-	TextDocumentPositionParams
+	TextDocumentPositionParams,
+	Hover
 } from 'vscode-languageserver';
 
 // Create a connection for the server. The connection uses Node's IPC as a transport.
@@ -210,6 +211,12 @@ connection.onCompletionResolve(
 		return item;
 	}
 );
+
+connection.onHover((params):Promise<Hover> => {
+	const uri = params.textDocument.uri;
+	const text = documents.get(uri);
+	
+});
 
 /*
 connection.onDidOpenTextDocument((params) => {

@@ -1,10 +1,6 @@
 // Generated from antlr4/ML.g4 by ANTLR 4.7.3-SNAPSHOT
 
 
-    // package com.syr.sml.parser;
-    // import java.util.HashMap;
-
-
 import { ParseTreeVisitor } from "antlr4ts/tree/ParseTreeVisitor";
 
 import { ValDecContext } from "./MLParser";
@@ -23,6 +19,7 @@ import { IncludeDecContext } from "./MLParser";
 import { NonfixDecContext } from "./MLParser";
 import { LeftAssocInfixDecContext } from "./MLParser";
 import { RightAssocInfixDecContext } from "./MLParser";
+import { MatchBodyContext } from "./MLParser";
 import { VarTypContext } from "./MLParser";
 import { LongIdTypContext } from "./MLParser";
 import { ConsOneTypContext } from "./MLParser";
@@ -92,7 +89,6 @@ import { TypeAnnoPatContext } from "./MLParser";
 import { LayeredPatContext } from "./MLParser";
 import { ClausalFuncBindContext } from "./MLParser";
 import { TypeRefineContext } from "./MLParser";
-import { MatchBodyContext } from "./MLParser";
 import { PlainFctBindCompContext } from "./MLParser";
 import { PlainFctBindSmplContext } from "./MLParser";
 import { OpenedFctBindCompContext } from "./MLParser";
@@ -129,7 +125,7 @@ import { SigBindContext } from "./MLParser";
 import { LongidContext } from "./MLParser";
 import { ExpContext } from "./MLParser";
 import { ExprowContext } from "./MLParser";
-import { MatchContext } from "./MLParser";
+import { EmatchContext } from "./MLParser";
 import { LabContext } from "./MLParser";
 import { PatContext } from "./MLParser";
 import { PatrowContext } from "./MLParser";
@@ -294,6 +290,14 @@ export interface MLVisitor<Result> extends ParseTreeVisitor<Result> {
 	 * @return the visitor result
 	 */
 	visitRightAssocInfixDec?: (ctx: RightAssocInfixDecContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `matchBody`
+	 * labeled alternative in `MLParser.ematch`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitMatchBody?: (ctx: MatchBodyContext) => Result;
 
 	/**
 	 * Visit a parse tree produced by the `varTyp`
@@ -848,14 +852,6 @@ export interface MLVisitor<Result> extends ParseTreeVisitor<Result> {
 	visitTypeRefine?: (ctx: TypeRefineContext) => Result;
 
 	/**
-	 * Visit a parse tree produced by the `matchBody`
-	 * labeled alternative in `MLParser.match`.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	visitMatchBody?: (ctx: MatchBodyContext) => Result;
-
-	/**
 	 * Visit a parse tree produced by the `plainFctBindComp`
 	 * labeled alternative in `MLParser.fctbind`.
 	 * @param ctx the parse tree
@@ -1141,11 +1137,11 @@ export interface MLVisitor<Result> extends ParseTreeVisitor<Result> {
 	visitExprow?: (ctx: ExprowContext) => Result;
 
 	/**
-	 * Visit a parse tree produced by `MLParser.match`.
+	 * Visit a parse tree produced by `MLParser.ematch`.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	visitMatch?: (ctx: MatchContext) => Result;
+	visitEmatch?: (ctx: EmatchContext) => Result;
 
 	/**
 	 * Visit a parse tree produced by `MLParser.lab`.

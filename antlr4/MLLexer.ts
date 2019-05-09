@@ -1,10 +1,6 @@
 // Generated from antlr4/ML.g4 by ANTLR 4.7.3-SNAPSHOT
 
 
-    // package com.syr.sml.parser;
-    // import java.util.HashMap;
-
-
 import { ATN } from "antlr4ts/atn/ATN";
 import { ATNDeserializer } from "antlr4ts/atn/ATNDeserializer";
 import { CharStream } from "antlr4ts/CharStream";
